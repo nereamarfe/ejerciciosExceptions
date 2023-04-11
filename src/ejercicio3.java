@@ -1,15 +1,8 @@
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ejercicio1 {
-    //EJERCICIO 1 PAGINA 199
-    /*
-    Escribe un programa calculadora que reciba como parámetros dos enteros (num1 y num2) desde
-    su llamada y que los muestre por pantalla. A continuacion, se deberá solicitar al usuario que
-    seleccione la operacion matematica a realizar entre los dos numeros.
-    Las operaciones que implementará serán suma, resta, multiplicacion, division y potencia.
-     */
+public class ejercicio3 {
+    //EJERCICIO 2 PAGINA 199
     public static void main(String[] args) {
         calculadora();
     }
@@ -26,6 +19,10 @@ public class ejercicio1 {
                 num2 = sc.nextInt();
                 numValidos=true;
             }catch (InputMismatchException e){
+                //ver la SOLUCION de Nuria para personalizar las Excepciones
+                //Aqui no podria hacer un throw pq tiene sus propias Excepciones
+                //Enmascaro las InputMismatch y RELANZO UNA Excepcion PROPIA
+                //Doble try catch
                 System.out.println("El operando introducido no es válido");
                 numValidos=false;
             }
@@ -58,10 +55,10 @@ public class ejercicio1 {
                     break;
                 case 4:
                     try{
-                        res = num1/num2;
+                        res = dividir(num1,num2);
                         System.out.println("La division es " + res);
-                    }catch (ArithmeticException e){
-                        System.out.println("No es posible la división entre 0");
+                    }catch (ExcepcionDivisionCero ex){
+                        System.out.println(ex.getMessage());
                     }
 
                     break;
@@ -73,6 +70,13 @@ public class ejercicio1 {
         }while(opcion!=0);
 
     }
+    public static double dividir(int n1, int n2){
+        double res;
+        if(n2==0){
+            throw new ExcepcionDivisionCero("No se puede dividir entre 0");
+        }
+        res = n1/n2;
 
-
+        return res;
+    }
 }
