@@ -9,6 +9,7 @@ import java.util.Scanner;
 import static java.time.temporal.ChronoUnit.DAYS;
 
 public class Main {
+    /** VER RESUELTO EL DE NURIA, ORDENACION DE EXCEPCIONES **/
     /*Clase Area: id, especialidad
      *Clase Trabajador: Persona persona, fecha incorporacion, Area area, cargo, salario
      *Clase Persona: dni, nombre, edad, direccion
@@ -57,6 +58,7 @@ public class Main {
                     System.out.println("Introduzca la direccion");
                     String dir = sc.nextLine();
                     System.out.println("Introduzca la fecha de incorporacion");
+
                     
 
 
@@ -120,7 +122,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduzca el DNI");
         String dni = sc.nextLine();
-        if(dni.length()<9){
+        if(dni.length()!=9){
             throw new InputDNIfueraDeRango("---DNI INCORRECTO");
         }
         return dni;

@@ -1,3 +1,5 @@
+package ejercicio4;
+
 import java.util.InputMismatchException;
 
 public class FormatoInvalidoException extends InputMismatchException {

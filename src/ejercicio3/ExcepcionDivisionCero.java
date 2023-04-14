@@ -1,3 +1,5 @@
+package ejercicio3;
+
 public class ExcepcionDivisionCero extends ArithmeticException {
     ExcepcionDivisionCero(String mensaje){
         super(mensaje);
